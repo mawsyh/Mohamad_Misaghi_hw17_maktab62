@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Company Lister</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+        body {
+            background-color: #b8c6db;
+            background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+        }
+        </style>
+</head>
+<body>
+<!--    header -->
+    <div class="bg-gray-800 h-24 w-full flex justify-between px-16 cursor-default">
+        <p class="font-bold text-2xl my-auto text-gray-100">CompanyLister</p>
+        <div class="text-white flex">
+            <p class="transition duration-300 cursor-pointer my-auto mx-4 border border-gray-100 px-4 py-2 hover:text-gray-800 hover:bg-gray-100 hover:border-gray-800">login</p>
+            <p class="my-auto mx-4 cursor-pointer">Signup</p>
+        </div>
+    </div>
+<!--body-->
+    <div class="mt-16 flex flex-col justify-center gap-4 mx-4">
+        <p class="text-2xl font-bold text-center text-blue-900 cursor-default mb-4">Join our proud family and get the perks...</p>
+        <div id="cards" class="flex flex-wrap justify-around">
+            <div class="absolute invisible" id="companies"><%= companyList%></div>
+            <% companyList.forEach((company, index) => { %>
+            <div class="xl:w-3/12 w-full lg:w-5/12 mx-2 rounded bg-blue-900 shadow-2xl text-white flex flex-col mb-6 px-4 py-6 gap-2">
+                <p class="text-center mb-4 text-xl font-bold text-blue-200"><%= company.name%></p>
+                <p class="font-bold">Registration Number: <span id="regNum<%=index%>" class="font-normal"><%= company.registerNumber %></span></p>
+                <p class="font-bold">City: <span class="font-normal"><%= company.city %></span></p>
+                <p class="font-bold">Province: <span class="font-normal"><%= company.province %></span></p>
+                <p class="font-bold">Creation Date: <span class="font-normal"><%= company.creationDate.toDateString() %></span></p>
+                <p class="font-bold">Phone Number: <span class="font-normal"><%= company.phoneNumber %></span></p>
+                <div class="flex justify-between">
+                    <button id="info<%=index%>" class="text-center px-4 py-2 bg-blue-200 text-gray-900 mt-4 -mb-2 rounded shadow text-sm font-semibold">More Info</button>
+                    <button class="text-center px-4 py-2 bg-yellow-400 text-gray-900 mt-4 -mb-2 rounded shadow text-sm font-semibold">Update</button>
+                    <button id="delete<%=index%>" class="text-center px-4 py-2 bg-rose-700 text-gray-100 mt-4 -mb-2 rounded shadow text-sm font-semibold">Delete</button>
+                </div>
+           </div>
+            <% }); %>
+        </div>
+        <span id="successMessage" class="fixed bg-green-300 bottom-4 right-4 px-4 py-2 rounded border border-green-700 invisible">Successfully Deleted!</span>
+    </div>
+</body>
+<script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<script src="/registered.js"></script>
+</html>
