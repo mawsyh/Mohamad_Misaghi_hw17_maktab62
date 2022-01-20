@@ -183,7 +183,30 @@ $(document).ready(function() {
     $(`#info7`).click(() => {
         window.location.replace(`http://localhost:6006/company/registered/${$(`#companyId7`).html()}`)
     })
-
+    $(`#update0`).click(() => {
+        window.location.replace(`http://localhost:6006/company/update/${$(`#companyId0`).html()}`)
+    })
+    $(`#update1`).click(() => {
+        window.location.replace(`http://localhost:6006/company/update/${$(`#companyId1`).html()}`)
+    })
+    $(`#update2`).click(() => {
+        window.location.replace(`http://localhost:6006/company/update/${$(`#companyId2`).html()}`)
+    })
+    $(`#update3`).click(() => {
+        window.location.replace(`http://localhost:6006/company/update/${$(`#companyId3`).html()}`)
+    })
+    $(`#update4`).click(() => {
+        window.location.replace(`http://localhost:6006/company/update/${$(`#companyId4`).html()}`)
+    })
+    $(`#update5`).click(() => {
+        window.location.replace(`http://localhost:6006/company/update/${$(`#companyId5`).html()}`)
+    })
+    $(`#update6`).click(() => {
+        window.location.replace(`http://localhost:6006/company/update/${$(`#companyId6`).html()}`)
+    })
+    $(`#update7`).click(() => {
+        window.location.replace(`http://localhost:6006/company/update/${$(`#companyId7`).html()}`)
+    })
 
 })
 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Company Lister</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+        body {
+            background-color: #b8c6db;
+            background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+<!--    header -->
+<div class="bg-gray-800 h-24 w-full flex justify-between px-16 cursor-default">
+    <p class="font-bold text-2xl my-auto text-gray-100">CompanyLister</p>
+    <div class="text-white flex">
+        <p class="transition duration-300 cursor-pointer my-auto mx-4 border border-gray-100 px-4 py-2 hover:text-gray-800 hover:bg-gray-100 hover:border-gray-800">login</p>
+        <p class="my-auto mx-4 cursor-pointer">Signup</p>
+    </div>
+</div>
+<!--body-->
+    <div>
+    <p class="mt-4 text-center font-bold text-2xl">Updating <%= company[0].name %></p>
+        <form id="updateForm" action="">
+            <div class="flex flex-col gap-4 mt-16">
+                <div class="flex justify-around">
+                    <div class="flex flex-col">
+                        <label for="name" class="my-auto text-lg font-meduim mr-2">name: </label>
+                        <input type="text" name="name" id="name" class="px-2 py-4 rounded shadow">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="registerNumber" class="my-auto text-lg font-meduim mr-2">Register Number: </label>
+                        <input type="text" name="registerNumber" id="registerNumber" class="px-2 py-4 rounded shadow">
+                    </div>
+                </div>
+                <div class="flex justify-around">
+                    <div class="flex flex-col">
+                        <label for="city" class="my-auto text-lg font-meduim mr-2">City: </label>
+                        <input type="text" name="city" id="city" class="px-2 py-4 rounded shadow">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="province" class="my-auto text-lg font-meduim mr-2">Province: </label>
+                        <input type="text" name="province" id="province" class="px-2 py-4 rounded shadow">
+                    </div>
+                </div>
+                <div class="flex justify-around">
+                    <div class="flex flex-col">
+                        <label for="creationDate" class="my-auto text-lg font-meduim mr-2">Creation Date: </label>
+                        <input type="text" name="creationDate" id="creationDate" class="px-2 py-4 rounded shadow">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="phoneNumber" class="my-auto text-lg font-meduim mr-2">Phone Number: </label>
+                        <input type="text" name="phoneNumber" id="phoneNumber" class="px-2 py-4 rounded shadow">
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-8">
+                <button id="submitRegisterForm" class="bg-rose-700 hover:bg-rose-800 duration-300 transition hover:text-white text-gray-100 shadow-xl px-8 py-4 rounded font-bold text-xl">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<script src="/companyData.js"></script>
+</html>

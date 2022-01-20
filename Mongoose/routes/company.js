@@ -16,9 +16,25 @@ router.get("/registered", async (req,res) => {
     res.render('registeredCompanies', {companyList: companyList})
 })
 
-router.get("/registered/:regNum", async (req, res) => {
-    const employeeList = await Employee.find({companyId: ObjectId(req.params.regNum)})
+router.get("/registered/:id", async (req, res) => {
+    const employeeList = await Employee.find({companyId: ObjectId(req.params.id)})
     res.render("employeePage", {employeeList: employeeList})
+})
+
+router.get("/update/:id", async (req, res) => {
+    const company = await Company.find({_id: req.params.id})
+    if (!req.body.name || !req.body.registerNumber || !req.body.city || !req.body.province || !req.body.creationDate || !req.body.phoneNumber) {
+        return res.status(406).json({msg: 'Not Acceptable'});
+    };
+    await Company.updateOne({_id: req.params.id}, {
+        name: req.body.name,
+        registerNumber: req.body.registerNumber,
+        city: req.body.city,
+        province: req.body.province,
+        creationDate: req.body.creationDate,
+        phoneNumber: req.body.phoneNumber,
+    });
+    res.render("updateCompany.ejs", {company: company})
 })
 
 router.post("/create", (req, res) => {
