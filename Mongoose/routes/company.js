@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Company = require('../models/company')
 const Employee = require('../models/employee')
+const ObjectId = require('mongodb').ObjectID;
+
 
 router.get("/", async (req, res) => {
     const companyList = await Company.find({})
@@ -14,8 +16,9 @@ router.get("/registered", async (req,res) => {
     res.render('registeredCompanies', {companyList: companyList})
 })
 
-router.get("/employees/:regNum", (req, res) => {
-
+router.get("/registered/:regNum", async (req, res) => {
+    const employeeList = await Employee.find({companyId: ObjectId(req.params.regNum)})
+    res.send(employeeList)
 })
 
 router.post("/create", (req, res) => {

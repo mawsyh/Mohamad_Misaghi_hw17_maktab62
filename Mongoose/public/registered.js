@@ -1,7 +1,4 @@
 $(document).ready(function() {
-    let companies  = $("#companies").html()
-    companies = companies.split("},")
-
     $(`#delete0`).click(() => {
         $.ajax({
             method: "POST",
@@ -162,10 +159,31 @@ $(document).ready(function() {
             }
         })
     })
+    $(`#info0`).click(() => {
+        window.location.replace(`http://localhost:6006/company/registered/${$(`#companyId0`).html()}`)
+    })
+    $(`#info1`).click(() => {
+        window.location.replace(`http://localhost:6006/company/registered/${$(`#companyId1`).html()}`)
+    })
+    $(`#info2`).click(() => {
+        window.location.replace(`http://localhost:6006/company/registered/${$(`#companyId2`).html()}`)
+    })
+    $(`#info3`).click(() => {
+        window.location.replace(`http://localhost:6006/company/registered/${$(`#companyId3`).html()}`)
+    })
+    $(`#info4`).click(() => {
+        window.location.replace(`http://localhost:6006/company/registered/${$(`#companyId4`).html()}`)
+    })
+    $(`#info5`).click(() => {
+        window.location.replace(`http://localhost:6006/company/registered/${$(`#companyId5`).html()}`)
+    })
+    $(`#info6`).click(() => {
+        window.location.replace(`http://localhost:6006/company/registered/${$(`#companyId6`).html()}`)
+    })
+    $(`#info7`).click(() => {
+        window.location.replace(`http://localhost:6006/company/registered/${$(`#companyId7`).html()}`)
+    })
 
 
-
-
-    console.log('lol')
 })
 

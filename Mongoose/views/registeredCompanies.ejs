@@ -28,7 +28,6 @@
     <div class="mt-16 flex flex-col justify-center gap-4 mx-4">
         <p class="text-2xl font-bold text-center text-blue-900 cursor-default mb-4">Join our proud family and get the perks...</p>
         <div id="cards" class="flex flex-wrap justify-around">
-            <div class="absolute invisible" id="companies"><%= companyList%></div>
             <% companyList.forEach((company, index) => { %>
             <div class="xl:w-3/12 w-full lg:w-5/12 mx-2 rounded bg-blue-900 shadow-2xl text-white flex flex-col mb-6 px-4 py-6 gap-2">
                 <p class="text-center mb-4 text-xl font-bold text-blue-200"><%= company.name%></p>
@@ -37,6 +36,7 @@
                 <p class="font-bold">Province: <span class="font-normal"><%= company.province %></span></p>
                 <p class="font-bold">Creation Date: <span class="font-normal"><%= company.creationDate.toDateString() %></span></p>
                 <p class="font-bold">Phone Number: <span class="font-normal"><%= company.phoneNumber %></span></p>
+                <span id="companyId<%=index%>" class="font-bold invisible"><%= company._id %></span>
                 <div class="flex justify-between">
                     <button id="info<%=index%>" class="text-center px-4 py-2 bg-blue-200 text-gray-900 mt-4 -mb-2 rounded shadow text-sm font-semibold">More Info</button>
                     <button class="text-center px-4 py-2 bg-yellow-400 text-gray-900 mt-4 -mb-2 rounded shadow text-sm font-semibold">Update</button>
