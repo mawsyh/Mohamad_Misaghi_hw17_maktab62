@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Company Lister</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+        body {
+            background-color: #b8c6db;
+            background-image: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+        }
+        </style>
+</head>
+<body>
+<!--    header -->
+    <div class="bg-gray-800 h-24 w-full flex justify-between px-16 cursor-default">
+        <p class="font-bold text-2xl my-auto text-gray-100">CompanyLister</p>
+        <div class="text-white flex">
+            <p class="transition duration-300 cursor-pointer my-auto mx-4 border border-gray-100 px-4 py-2 hover:text-gray-800 hover:bg-gray-100 hover:border-gray-800">login</p>
+            <p class="my-auto mx-4 cursor-pointer">Signup</p>
+        </div>
+    </div>
+<!--body-->
+    <div class="mt-16 flex flex-col justify-center gap-4 mx-4">
+        <p class="text-2xl font-bold text-center text-blue-900 cursor-default mb-4">Join our proud family and get the perks...</p>
+        <div id="cards" class="flex flex-wrap justify-around">
+            <% employeeList.forEach((employee, index) => { %>
+            <div class="xl:w-3/12 w-full lg:w-5/12 mx-2 rounded bg-blue-900 shadow-2xl text-white flex flex-col mb-6 px-4 py-6 gap-2">
+                <p class="text-center mb-4 text-xl font-bold text-blue-200"><%= employee.firstName%> <%= employee.lastName%> </p>
+                <p class="font-bold">National code: <span class="font-normal"><%= employee.nationalCode %></span></p>
+                <p class="font-bold">Birthday: <span class="font-normal"><%= employee.birthDate.toDateString() %></span></p>
+                <p class="font-bold">Sex: <span class="font-normal"><%= employee.sex %></span></p>
+                <% if(employee.isManager) { %>
+                        <p class="font-bold">Role: <span class="font-normal">Manager</span></p>
+                <% } %>
+           </div>
+            <% }); %>
+        </div>
+        <span id="successMessage" class="fixed bg-green-300 bottom-4 right-4 px-4 py-2 rounded border border-green-700 invisible">Successfully Deleted!</span>
+    </div>
+</body>
+<script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<script src="/registered.js"></script>
+</html>

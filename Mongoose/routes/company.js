@@ -18,7 +18,7 @@ router.get("/registered", async (req,res) => {
 
 router.get("/registered/:regNum", async (req, res) => {
     const employeeList = await Employee.find({companyId: ObjectId(req.params.regNum)})
-    res.send(employeeList)
+    res.render("employeePage", {employeeList: employeeList})
 })
 
 router.post("/create", (req, res) => {
